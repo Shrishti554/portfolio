@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Modern Dark Portfolio Design System - All colors MUST be HSL */
+
+@layer base {
+  :root {
+    /* Dark Mode Portfolio Theme */
+    --background: 220 25% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 220 20% 12%;
+    --card-foreground: 0 0% 90%;
+
+    --popover: 220 20% 10%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 150 100% 45%;
+    --primary-foreground: 220 25% 8%;
+
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 0 0% 85%;
+
+    --muted: 220 15% 15%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 150 100% 45%;
+    --accent-foreground: 220 25% 8%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 16%;
+    --ring: 150 100% 45%;
+
+    --radius: 0.75rem;
+
+    /* Portfolio-specific colors */
+    --hero-bg: 220 25% 6%;
+    --section-bg: 220 20% 10%;
+    --glass-bg: 220 25% 8% / 0.8;
+    --accent-glow: 150 100% 45% / 0.3;
+    --text-highlight: 150 100% 60%;
+    --gradient-primary: linear-gradient(135deg, hsl(150 100% 45%), hsl(180 100% 40%));
+    --gradient-card: linear-gradient(145deg, hsl(220 20% 12%), hsl(220 15% 15%));
+    --shadow-glow: 0 0 40px hsl(150 100% 45% / 0.2);
+    --shadow-card: 0 10px 30px hsl(220 25% 4% / 0.5);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border/50 rounded-lg shadow-lg;
+  }
+  
+  .hero-gradient {
+    background: var(--gradient-primary);
+  }
+  
+  .glow-effect {
+    filter: drop-shadow(var(--shadow-glow));
+  }
+  
+  .section-bg {
+    background: hsl(var(--section-bg));
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glow {
+  from { filter: drop-shadow(0 0 20px hsl(var(--accent-glow))); }
+  to { filter: drop-shadow(0 0 40px hsl(var(--accent-glow))); }
+}
+
+/* Smooth scrolling and animations */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out forwards;
+}
+
+.animate-delay-100 { animation-delay: 0.1s; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-300 { animation-delay: 0.3s; }
+.animate-delay-400 { animation-delay: 0.4s; }
